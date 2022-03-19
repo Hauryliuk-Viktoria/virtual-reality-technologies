@@ -14,20 +14,28 @@ public class SpawnerBase : MonoBehaviour
     {
         //obj.Start();
         StartCoroutine(SpawnObj());
+        //StartCoroutine(DestroyObj());
         //SpawnObj();
-        
+
     }
     void Repeat()
     {
         StartCoroutine(SpawnObj());
-        Destroy(this);
+        //StartCoroutine(DestroyObj());
     }
     IEnumerator SpawnObj()
     {
         yield return new WaitForSeconds(TimeSpawn);
         Instantiate(obj, position.position, Quaternion.identity);
+         
         Repeat();
         //return null;
+    }
+
+    IEnumerator DestroyObj()
+    {
+        yield return new WaitForSeconds(TimeSpawn);
+        Destroy(this);
     }
 
    

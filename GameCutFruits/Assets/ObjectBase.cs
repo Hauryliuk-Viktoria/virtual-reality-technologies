@@ -33,6 +33,7 @@ public class ObjectBase : MonoBehaviour //сделать наследрвание для фруктов и бом
     private void Force()
     {
         force = Random.Range(15, 20);
-        rigidbody.AddForce(position.up * force, ForceMode2D.Impulse);
+        var vector = new Vector2(Random.RandomRange(-0.25f, 0.25f), 1);
+        rigidbody.AddForce(vector * force, ForceMode2D.Impulse);
     }
 }
